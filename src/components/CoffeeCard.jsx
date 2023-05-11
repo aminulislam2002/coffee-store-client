@@ -49,11 +49,11 @@ const CoffeeCard = ({ coffee }) => {
           </div>
           <div>
             <div className="btn-group btn-group-vertical space-y-3">
-              <button className="btn">View</button>
-              <Link to={`updateCoffee/${_id}`}>
-                <button className="btn">Edit</button>
-              </Link>
-              <button className="btn" onClick={() => handleDelete(_id)}>
+              <button className="btn bg-emerald-500 border-0 hover:bg-emerald-800">View</button>
+              <button className="btn bg-blue-500 border-0 hover:bg-blue-800">
+                <Link to={`updateCoffee/${_id}`}>Edit</Link>
+              </button>
+              <button className="btn bg-red-500 border-0 hover:bg-red-800" onClick={() => handleDelete(_id)}>
                 Delete
               </button>
             </div>
