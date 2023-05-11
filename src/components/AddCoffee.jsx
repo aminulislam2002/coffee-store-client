@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const AddCoffee = () => {
@@ -12,9 +13,11 @@ const AddCoffee = () => {
     const taste = form.taste.value;
     const category = form.category.value;
     const details = form.details.value;
+    const price = form.price.value;
+    const voucher = form.voucher.value;
     const photoURL = form.photoURL.value;
 
-    const newCoffee = { name, quantity, supplier, taste, category, details, photoURL };
+    const newCoffee = { name, quantity, supplier, taste, category, details, price, voucher, photoURL };
     console.log(newCoffee);
 
     // Send data to the server
@@ -41,8 +44,16 @@ const AddCoffee = () => {
   };
 
   return (
-    <div className="bg-[#F4F3F0] p-10 md:p-24">
-      <h1 className="text-center font-extrabold text-3xl">Add a Coffee</h1>
+    <div className="bg-[#F4F3F0] py-10 md:px-24">
+      <div className="bg-red-300 flex justify-between p-5 mb-10">
+        <h1 className="text-3xl text-purple-600 text-center font-semibold">Add a new coffee</h1>
+        <div>
+          <Link to="/">
+            <button className="bg-blue-400 py-3 px-5 rounded text-white">View all coffee</button>
+          </Link>
+        </div>
+      </div>
+
       <form onSubmit={handleAddCoffee}>
         {/* From name and quantity row  */}
         <div className="md:flex md:gap-10 md:mb-5">
@@ -98,6 +109,25 @@ const AddCoffee = () => {
             </label>
             <label className="input-group">
               <input type="text" name="details" placeholder="Details" className="input input-bordered w-full" />
+            </label>
+          </div>
+        </div>
+        {/* From price and voucher row  */}
+        <div className="md:flex md:gap-10 md:mb-5">
+          <div className="form-control md:w-1/2 mb-3 md:mb-0">
+            <label className="label">
+              <span className="label-text">Price</span>
+            </label>
+            <label className="input-group">
+              <input type="text" name="price" placeholder="Price" className="input input-bordered w-full" />
+            </label>
+          </div>
+          <div className="form-control md:w-1/2 mb-3 md:mb-0">
+            <label className="label">
+              <span className="label-text">Voucher</span>
+            </label>
+            <label className="input-group">
+              <input type="text" name="voucher" placeholder="Voucher" className="input input-bordered w-full" />
             </label>
           </div>
         </div>
